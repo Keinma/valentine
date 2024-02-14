@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    background-color: #ff6b6b;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+  button.small {
+    transform: scale(0.8);
+    padding: 5px 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>Will You Be My Valentine?</h1>
+
+<div class="button-container">
+  <button id="valentineYesButton">Yes</button>
+  <button id="valentineNoButton">No</button>
+</div>
+
+<script>
+document.getElementById("valentineYesButton").addEventListener("click", function() {
+  var answer = confirm("Will you be my Valentine?");
+  if (answer) {
+    alert("Yay! Happy Valentine's Day!");
+  } else {
+    alert("That's okay, have a wonderful day!");
+  }
+});
+
+document.getElementById("valentineNoButton").addEventListener("click", function() {
+  document.getElementById("valentineNoButton").classList.add("small");
+});
+</script>
+
+</body>
+</html>
