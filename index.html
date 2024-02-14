@@ -41,6 +41,8 @@
 </div>
 
 <script>
+let clickCount = 0;
+
 document.getElementById("valentineYesButton").addEventListener("click", function() {
   var answer = confirm("Will you be my Valentine?");
   if (answer) {
@@ -51,7 +53,20 @@ document.getElementById("valentineYesButton").addEventListener("click", function
 });
 
 document.getElementById("valentineNoButton").addEventListener("click", function() {
-  document.getElementById("valentineNoButton").classList.add("small");
+  clickCount++;
+  const scaleFactor = 0.95; // Scale factor for each click
+  const minScale = 0.1; // Minimum scale to prevent button from disappearing
+
+  // Calculate new scale based on click count
+  const scale = Math.pow(scaleFactor, clickCount);
+
+  // Apply new scale to the button
+  document.getElementById("valentineNoButton").style.transform = `scale(${scale})`;
+
+  // If the scale is smaller than the minimum scale, set it to the minimum scale
+  if (scale < minScale) {
+    document.getElementById("valentineNoButton").style.transform = `scale(${minScale})`;
+  }
 });
 </script>
 
